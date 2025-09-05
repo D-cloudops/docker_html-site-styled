@@ -1,0 +1,17 @@
+services:
+  app_server:
+    build: .
+    container_name: nginx_server
+    ports:
+      - 8080:80
+    volumes:
+      - log_dir:/var/log/nginx_server
+    networks:
+      - nginx_network
+
+volumes:
+  log_dir:
+
+networks:
+  nginx_network:
+    driver: bridge
